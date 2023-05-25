@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+  <style>
+
+    body{
+       background-color: #363636;
+    }
+    /* Container for the buttons */
+    .button-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    /* Individual button */
+    .button {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 260px;
+      height: 260px;
+      margin: 10px;
+      margin-top: 2%;
+      background-color: #f1f1f1;
+      cursor: pointer;
+      border-radius: 40px;
+      transition: ease 0.3s;
+    }
+
+
+    .button:hover{
+        scale:1.1;
+        box-shadow: 20px 20px 10px #00000081;
+    }
+    /* Text popup style */
+    .button:hover::before {
+      content: attr(data-text);
+      position: absolute;
+      top: 70%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #363636;
+      font-size: 18px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+  </style>
+</head>
+<script src="/js/go.js"></script>
+<script src="/js/index.js"></script>
+<body>
+  <div class="button-container">
+    <div class="button" data-text="Button 1" onclick="redirectToURL('/service/gateway?url=youtube.com')">
+        <img src="button1.jpg" alt="Button 1 Image">
+      </div>
+      <div class="button" data-text="Button 2" onclick="redirectToURL('/service/gateway?url=discord.com')">
+        <img src="button2.jpg" alt="Button 2 Image">
+      </div>
+      <div class="button" data-text="Button 3" onclick="redirectToURL('/service/gateway?url=')">
+        <img src="button3.jpg" alt="Button 3 Image">
+      </div>
+    <!-- Add more buttons as needed -->
+  </div>
+</body>
+<script>
+    function redirectToURL(url) {
+      window.location.href = url;
+    }
+  </script>
+  <script>
+  var proxy=localStorage.getItem("proxy");
+  if (proxy==undefined){
+   proxy="Corrosion";
+  }
+  </script>
+</html>
